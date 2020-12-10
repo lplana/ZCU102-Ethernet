@@ -2,12 +2,12 @@
 / {
 };
 &gem0 {
-    phy-handle = <&phy9>;
-    phy9: phy@9 {
-        reg = <0x9>;
-        xlnx,phy-type = <0x5>;
-		reset-gpios = <&gpio 78 0>;
-    };
+   phy-handle = <&phy9>;
+   phy9: phy@9 {
+      reg = <0x9>;
+      xlnx,phy-type = <0x5>;
+      reset-gpios = <&gpio 78 0>;
+   };
 };
 
  &i2c1 {

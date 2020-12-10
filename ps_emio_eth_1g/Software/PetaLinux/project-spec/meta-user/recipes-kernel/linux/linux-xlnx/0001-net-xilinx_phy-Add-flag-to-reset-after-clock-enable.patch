@@ -1,4 +1,4 @@
-From 711952f39f5732197fabe5e7c3c1ae3e30350f88 Mon Sep 17 00:00:00 2001
+From 29b2379c80cfe11f1def0c16b52d9b229fee781a Mon Sep 17 00:00:00 2001
 From: Harini Katakam <harini.katakam@xilinx.com>
 Date: Mon, 23 Sep 2019 22:36:33 +0530
 Subject: [LINUX PATCH 1/2] net: xilinx_phy: Add flag to reset after clock
@@ -25,6 +25,5 @@ index 2410fa3..16aad53 100644
  		.features = PHY_GBIT_FEATURES,
  		.config_init = &xilinxphy_config_init,
  		.config_aneg = &genphy_config_aneg,
--- 
+--
 2.7.4
-

@@ -1,4 +1,4 @@
-# PS 10/100/1000BASE-T via MIO v2019.1
+# PS 10/100/1000BASE-T via MIO v2019.2
 
 ## **Design Summary**
 
@@ -20,13 +20,13 @@ Enter the `Scripts` directory. From the command line run the following:
 
 The Vivado project will be built in the `Hardware` directory.
 
-### **SDK**:
+### **Vitis**:
 
-To build the Baremetal Example Applications for this project, create a new SDK project in the `Software/SDK` directory. Once created, import the hardware definition file from your Vivado export location.
+To build the Baremetal Example Applications for this project, create a new Vitis workspace in the `Software/Vitis` directory. Once created, build a new platform project targeting your exported xsa file from Vivado.
 
 You can now create a new application project. Select `File > New > New Application Project`
 
-SDK offers several Ethernet-based example application projects which leverage the LwIP Library. These can be selected on the second page of the New Application Project dialogue.
+Vitis offers several Ethernet-based example application projects which leverage the LwIP Library. These can be selected on the second page of the New Application Project dialogue.
 
 ### **PetaLinux**:
 
@@ -100,27 +100,25 @@ PING 123.234.1.1 (123.234.1.1): 56 data bytes
 round-trip min/avg/max = 0.214/0.249/0.296 ms
 root@plnx:~#
 ```
-
 ### **Performance:**
 **NOTE:** These are rough performance numbers - your actual performance may vary based on a variety of factors such as network topology and kernel load.
 
 These performance numbers reflect an MTU of 9000.
-
 ```
 root@plnx:~# iperf3 -c 123.234.10.1
 Connecting to host 123.234.10.1, port 5201
-[  5] local 123.234.10.18 port 52694 connected to 123.234.10.1 port 5201
+[  5] local 123.234.10.18 port 38066 connected to 123.234.10.1 port 5201
 [ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-[  5]   0.00-1.00   sec   119 MBytes   997 Mbits/sec    0    350 KBytes
-[  5]   1.00-2.00   sec   118 MBytes   991 Mbits/sec    0    350 KBytes
-[  5]   2.00-3.00   sec   118 MBytes   990 Mbits/sec    0    350 KBytes
-[  5]   3.00-4.00   sec   118 MBytes   989 Mbits/sec    0    350 KBytes
-[  5]   4.00-5.00   sec   118 MBytes   993 Mbits/sec    0    384 KBytes
-[  5]   5.00-6.00   sec   118 MBytes   990 Mbits/sec    0    384 KBytes
-[  5]   6.00-7.00   sec   118 MBytes   991 Mbits/sec    0    384 KBytes
-[  5]   7.00-8.00   sec   118 MBytes   989 Mbits/sec    0    384 KBytes
-[  5]   8.00-9.00   sec   118 MBytes   988 Mbits/sec    0    384 KBytes
-[  5]   9.00-10.00  sec   118 MBytes   994 Mbits/sec    0    384 KBytes
+[  5]   0.00-1.00   sec   119 MBytes  1.00 Gbits/sec    0    332 KBytes
+[  5]   1.00-2.00   sec   118 MBytes   990 Mbits/sec    0    332 KBytes
+[  5]   2.00-3.00   sec   118 MBytes   989 Mbits/sec    0    332 KBytes
+[  5]   3.00-4.00   sec   118 MBytes   991 Mbits/sec    0    332 KBytes
+[  5]   4.00-5.00   sec   118 MBytes   989 Mbits/sec    0    332 KBytes
+[  5]   5.00-6.00   sec   118 MBytes   990 Mbits/sec    0    332 KBytes
+[  5]   6.00-7.00   sec   118 MBytes   989 Mbits/sec    0    332 KBytes
+[  5]   7.00-8.00   sec   118 MBytes   993 Mbits/sec    0    332 KBytes
+[  5]   8.00-9.00   sec   118 MBytes   987 Mbits/sec    0    332 KBytes
+[  5]   9.00-10.00  sec   118 MBytes   992 Mbits/sec    0    332 KBytes
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bitrate         Retr
 [  5]   0.00-10.00  sec  1.15 GBytes   991 Mbits/sec    0             sender
@@ -128,7 +126,6 @@ Connecting to host 123.234.10.1, port 5201
 
 iperf Done.
 root@plnx:~#
-
 ```
 ---
 
